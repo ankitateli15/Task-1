@@ -1,0 +1,21 @@
+.form-input{
+    height: 35px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    color: blueviolet;
+
+}
+.common-form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    width: 100px;
+    /* text-align: center; */
+    justify-content: center;
+}

@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+  <a class="navbar-brand" href="#">Task-1</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <button class="btn btn-danger btn-sm fa-solid fa-cart-shopping" (click)="openBuyNowDialog()">Buy Now</button>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="card text-center" *ngFor="let item of product">
+  <img class="card-img-top" src="{{item.image}}" alt="Product Image">
+  <div class="card-body">
+    <h5 class="card-title">{{item.productName}}</h5>
+    <p class="card-text">price: {{item.price | currency:'INR' }}</p>
+    <button class="btn btn-primary  btn-sm mr-1" (click)="increaseQuantity(item)">+</button>
+
+    <span>{{ item.quantity }}</span>
+    <button class="btn btn-primary btn-sm ml-1" (click)="decreaseQuantity(item)">-</button><br>
+
+
+    <button class="btn btn-success btn-sm mt-2" (click)="addToBag(item)">Add to Bag</button>
+  </div>
+</div>
+
+<table class="product-list">
+  <thead>
+    <tr>
+      <th scope="col">Product-Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price Details</th>
+      <th scope="col">Order Total</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of productList">
+      <th scope="row">{{item.productName}}</th>
+      <td>{{item.quantity}}</td>
+      <td>{{item.price}}</td>
+      <td>{{ item.quantity * item.price }}</td>
+      <td><i class="fa fa-trash text-center" aria-hidden="true" (click)="onDelete(item)"></i></td>
+
+    </tr>
+
+  </tbody>
+</table>
